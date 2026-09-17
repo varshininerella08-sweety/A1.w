@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS 75 Practical Lab</title>
+
+<style>
+
+/* =========================================================
+   CSS PRACTICAL LAB - ALL CSS TOPICS
+   ========================================================= */
+
+/* 29. CSS VARIABLES */
+:root {
+    --primary: #5b5bd6;
+    --secondary: #8e44ad;
+    --accent: #00a896;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --dark: #20243a;
+    --light: #f5f7fb;
+    --white: #ffffff;
+    --text: #303442;
+    --border: #dfe3ec;
+    --shadow: 0 8px 25px rgba(0,0,0,.10);
+    --radius: 16px;
+}
+
+/* 27. UNIVERSAL SELECTOR */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. ELEMENT SELECTOR */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* 2. ID SELECTOR */
+#main-title {
+    letter-spacing: 2px;
+}
+
+/* 2. GROUPING SELECTOR */
+h1, h2, h3 {
+    color: var(--dark);
+}
+
+/* 4. FONT AND TEXT */
+p {
+    font-size: 16px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+/* 1. INLINE / INTERNAL / EXTERNAL CSS DEMO */
+.inline-demo {
+    color: white;
+    background: var(--primary);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* 3. COLORS, BACKGROUNDS, BORDERS */
+.color-box {
+    color: white;
+    background: linear-gradient(135deg, #5b5bd6, #8e44ad);
+    border: 3px solid #222;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* HEADER */
+header {
+    position: sticky; /* 7, 50 */
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #20243a, #5b5bd6);
+    color: white;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* 9. NAVIGATION BAR */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,.2);
+}
+
+/* 19. RESPONSIVE NAV */
+.menu-button {
+    display: none;
+}
+
+/* MAIN */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+/* SECTIONS */
+.practical {
+    background: white;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.practical h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+}
+
+.demo {
+    background: #f8f9fd;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+/* 5. BOX MODEL */
+.box-model {
+    background: #dff9fb;
+    border: 10px solid #22a6b3;
+    padding: 30px;
+    margin: 25px;
+    text-align: center;
+}
+
+/* 6. WIDTH HEIGHT SIZING */
+.size-small {
+    width: 150px;
+    height: 70px;
+    background: #dff9fb;
+}
+
+.size-medium {
+    width: 60%;
+    min-height: 80px;
+    max-width: 600px;
+    background: #c7ecee;
+    padding: 20px;
+}
+
+.size-container {
+    width: min(100%, 700px);
+    padding: 20px;
+    background: #e8eaf6;
+}
+
+/* 7. POSITIONING */
+.position-area {
+    position: relative;
+    height: 180px;
+    background: #eee;
+    padding: 20px;
+}
+
+.static-box {
+    position: static;
+    background: #74b9ff;
+    padding: 10px;
+}
+
+.relative-box {
+    position: relative;
+    left: 30px;
+    top: 10px;
+    background: #55efc4;
+    padding: 10px;
+}
+
+.absolute-box {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #ff7675;
+    color: white;
+    padding: 10px;
+}
+
+/* Fixed demo */
+.fixed-demo {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    z-index: 999;
+}
+
+/* 8. FLOAT AND CLEAR */
+.float-left {
+    float: left;
+    width: 120px;
+    height: 80px;
+    background: #a29bfe;
+    margin-right: 15px;
+    padding: 20px;
+}
+
+.clear-demo {
+    clear: both;
+    padding-top: 15px;
+}
+
+/* 10. PSEUDO CLASSES */
+.pseudo-links a {
+    margin: 5px;
+}
+
+.pseudo-links a:hover {
+    color: red;
+}
+
+.pseudo-links a:active {
+    color: green;
+}
+
+.pseudo-links input:focus {
+    outline: 3px solid #74b9ff;
+}
+
+/* 11. PSEUDO ELEMENTS */
+.pseudo-element::before {
+    content: "★ ";
+    color: #f39c12;
+}
+
+.pseudo-element::after {
+    content: " ✓";
+    color: green;
+}
+
+.first-letter::first-letter {
+    font-size: 40px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.first-line::first-line {
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+/* 12. LISTS AND TABLES */
+.custom-list {
+    list-style-type: square;
+    padding-left: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #bbb;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: var(--primary);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f1f2f6;
+}
+
+/* 13. FORM */
+form {
+    max-width: 650px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd1dc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+/* 14. FLEXBOX */
+.flex-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1;
+    min-width: 120px;
+    padding: 25px;
+    background: #dfe6e9;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* 15. GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.grid-item {
+    background: #e8eaf6;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* 16. MEDIA QUERIES */
+.responsive-box {
+    padding: 30px;
+    background: #81ecec;
+    text-align: center;
+}
+
+/* 17, 65. TRANSITIONS */
+.transition-box {
+    width: 120px;
+    height: 80px;
+    background: var(--primary);
+    transition: all .5s ease;
+}
+
+.transition-box:hover {
+    width: 220px;
+    transform: scale(1.05);
+}
+
+/* 18, 67. ANIMATIONS */
+.animation-box {
+    width: 100px;
+    height: 100px;
+    background: var(--secondary);
+    animation: moveBox 3s infinite alternate;
+}
+
+@keyframes moveBox {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(300px) rotate(180deg);
+    }
+}
+
+/* 20. PORTFOLIO */
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #5b5bd6, #8e44ad);
+    color: white;
+    border-radius: 18px;
+}
+
+.hero h1 {
+    color: white;
+    font-size: clamp(35px, 6vw, 70px);
+}
+
+.hero p {
+    color: white;
+}
+
+/* 21. STUDENT PROFILE */
+.profile {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* 22. LOGIN */
+.login-box {
+    max-width: 400px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+/* 23. PRODUCT CARD */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.product-image {
+    height: 160px;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: grid;
+    place-items: center;
+    font-size: 50px;
+}
+
+.product-content {
+    padding: 20px;
+}
+
+/* 24, 45. PHOTO GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    height: 160px;
+    background: linear-gradient(135deg, #81ecec, #74b9ff);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+/* 26. INHERITANCE AND SPECIFICITY */
+.inherit-parent {
+    color: purple;
+}
+
+.inherit-child {
+    /* inherits color */
+    font-weight: bold;
+}
+
+.specificity {
+    color: blue;
+}
+
+#specificity-demo {
+    color: red;
+}
+
+/* 27. ATTRIBUTE SELECTOR */
+input[type="email"] {
+    border-left: 5px solid var(--accent);
+}
+
+/* 28. COMBINATORS */
+.combinator-demo p {
+    color: #555;
+}
+
+.combinator-demo > p {
+    background: #fff3cd;
+}
+
+.combinator-demo h4 + p {
+    font-weight: bold;
+}
+
+.combinator-demo h4 ~ p {
+    padding-left: 10px;
+}
+
+/* 30. BACKGROUND IMAGE */
+.background-image {
+    min-height: 220px;
+    background-image:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+/* 31. GRADIENTS */
+.linear-gradient {
+    background: linear-gradient(90deg, #5b5bd6, #8e44ad);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.radial-gradient {
+    background: radial-gradient(circle, #74b9ff, #5b5bd6);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* 32. SHADOWS */
+.shadow-box {
+    padding: 30px;
+    box-shadow: 8px 8px 20px rgba(0,0,0,.25);
+}
+
+.shadow-text {
+    font-size: 30px;
+    text-shadow: 3px 3px 4px #aaa;
+}
+
+/* 33. BORDER RADIUS */
+.shapes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background: #74b9ff;
+    border-radius: 50%;
+}
+
+.rounded-square {
+    width: 100px;
+    height: 100px;
+    background: #55efc4;
+    border-radius: 25px;
+}
+
+.pill {
+    padding: 15px 35px;
+    background: #a29bfe;
+    border-radius: 50px;
+}
+
+/* 34. OPACITY */
+.opacity-container {
+    display: flex;
+    gap: 15px;
+}
+
+.opacity-box {
+    padding: 30px;
+    background: var(--primary);
+    color: white;
+}
+
+.opacity-50 {
+    opacity: .5;
+}
+
+/* 35. OVERFLOW */
+.overflow-box {
+    width: 250px;
+    height: 100px;
+    overflow: auto;
+    border: 2px solid var(--primary);
+    padding: 10px;
+}
+
+/* 36. Z-INDEX */
+.z-container {
+    position: relative;
+    height: 150px;
+}
+
+.z-one, .z-two, .z-three {
+    position: absolute;
+    width: 130px;
+    height: 90px;
+    padding: 20px;
+    color: white;
+}
+
+.z-one {
+    background: red;
+    left: 20px;
+    z-index: 1;
+}
+
+.z-two {
+    background: blue;
+    left: 70px;
+    top: 30px;
+    z-index: 3;
+}
+
+.z-three {
+    background: green;
+    left: 120px;
+    top: 60px;
+    z-index: 2;
+}
+
+/* 37. DISPLAY */
+.display-block {
+    display: block;
+    background: #74b9ff;
+    padding: 10px;
+}
+
+.display-inline {
+    display: inline;
+    background: #55efc4;
+    padding: 10px;
+}
+
+.display-inline-block {
+    display: inline-block;
+    background: #ffeaa7;
+    padding: 10px;
+}
+
+.display-none {
+    display: none;
+}
+
+/* 38. VISIBILITY */
+.visibility-hidden {
+    visibility: hidden;
+}
+
+/* 39. DROPDOWN */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 40. IMAGE HOVER */
+.image-hover {
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+    transition: .5s;
+    border-radius: 12px;
+}
+
+.image-hover:hover {
+    transform: scale(1.08);
+    filter: brightness(.7);
+}
+
+/* 41. TOOLTIP */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+/* 42. CSS ONLY BUTTON ANIMATION */
+.animated-button {
+    background: var(--primary);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.animated-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(91,91,214,.4);
+}
+
+/* 43. CSS FILTERS */
+.filter-gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-gallery img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.blur {
+    filter: blur(4px);
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.brightness {
+    filter: brightness(1.6);
+}
+
+.contrast {
+    filter: contrast(180%);
+}
+
+/* 44. OBJECT FIT */
+.object-demo {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+/* 46. CARD FLEXBOX */
+.card-flex {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.flex-card {
+    flex: 1 1 220px;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* 47. DASHBOARD GRID */
+.dashboard {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+}
+
+.dashboard-sidebar {
+    grid-row: 1 / 3;
+    background: var(--dark);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.dashboard-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.dashboard-card {
+    background: #e8eaf6;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+/* 48. TWO COLUMN GRID */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* 49. THREE COLUMN FLEX */
+.three-column {
+    display: flex;
+    gap: 20px;
+}
+
+.three-column > div {
+    flex: 1;
+    padding: 25px;
+    background: #dfe6e9;
+    border-radius: 12px;
+}
+
+/* 51. FIXED SIDEBAR */
+.fixed-sidebar {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--dark);
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    z-index: 998;
+}
+
+.fixed-sidebar a {
+    display: block;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+/* 52. FOOTER */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 35px;
+    text-align: center;
+}
+
+/* 53. RESPONSIVE LOGIN/SIGNUP */
+.auth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* 54. CONTACT */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* 55. COLLEGE WEBSITE */
+.college-banner {
+    padding: 50px;
+    background: linear-gradient(135deg, #00a896, #5b5bd6);
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.college-banner h2 {
+    color: white;
+}
+
+/* 56. RESTAURANT */
+.restaurant {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.restaurant h2 {
+    color: white;
+}
+
+/* 57. SHOPPING */
+.shopping {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.shop-item {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* 58. TRAVEL */
+.travel {
+    min-height: 250px;
+    background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.travel h2 {
+    color: white;
+}
+
+/* 59. NEWS GRID */
+.news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+}
+
+.news-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+/* 61. GRID TEMPLATE AREAS */
+.area-layout {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-template-columns: 200px 1fr;
+    gap: 10px;
+}
+
+.area-header {
+    grid-area: header;
+    background: #74b9ff;
+    padding: 20px;
+}
+
+.area-sidebar {
+    grid-area: sidebar;
+    background: #a29bfe;
+    padding: 20px;
+}
+
+.area-content {
+    grid-area: content;
+    background: #dfe6e9;
+    padding: 20px;
+}
+
+.area-footer {
+    grid-area: footer;
+    background: #636e72;
+    color: white;
+    padding: 20px;
+}
+
+/* 62. FLEX ALIGNMENT AND ORDER */
+.flex-order {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.order-one {
+    order: 3;
+}
+
+.order-two {
+    order: 1;
+}
+
+.order-three {
+    order: 2;
+}
+
+/* 63. RESPONSIVE GRID */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.responsive-grid div {
+    padding: 25px;
+    background: #e8eaf6;
+    text-align: center;
+}
+
+/* 64. MOBILE FIRST */
+.mobile-first {
+    width: 100%;
+    padding: 20px;
+    background: #81ecec;
+}
+
+/* 66. 2D AND 3D */
+.transform-2d {
+    width: 100px;
+    height: 100px;
+    background: #74b9ff;
+    transition: .5s;
+}
+
+.transform-2d:hover {
+    transform: rotate(20deg) scale(1.2);
+}
+
+.transform-3d {
+    width: 100px;
+    height: 100px;
+    background: #a29bfe;
+    transition: .7s;
+    transform-style: preserve-3d;
+}
+
+.transform-3d:hover {
+    transform: perspective(500px) rotateX(45deg) rotateY(45deg);
+}
+
+/* 68. LOADING SPINNER */
+.spinner {
+    width: 55px;
+    height: 55px;
+    border: 7px solid #ddd;
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 69. SLIDING CARD */
+.slide-track {
+    display: flex;
+    width: max-content;
+    animation: slide 8s linear infinite;
+}
+
+.slide-card {
+    width: 180px;
+    margin-right: 15px;
+    padding: 30px;
+    background: #a29bfe;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.slider {
+    overflow: hidden;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-400px);
+    }
+}
+
+/* 70. CSS ONLY MODAL */
+.modal-check {
+    display: none;
+}
+
+.modal-label {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    display: none;
+    place-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.modal-check:checked ~ .modal {
+    display: grid;
+}
+
+/* 71. DARK MODE */
+.dark-check {
+    display: none;
+}
+
+.dark-label {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--dark);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.dark-check:checked ~ .dark-demo {
+    --dark-bg: #171923;
+    --dark-text: #f5f5f5;
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-demo {
+    padding: 30px;
+    background: #f1f2f6;
+    color: #222;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+/* 72. RESPONSIVE TYPOGRAPHY */
+.responsive-text {
+    font-size: clamp(22px, 5vw, 50px);
+    font-weight: bold;
+}
+
+/* 73. CLAMP MIN MAX */
+.clamp-box {
+    font-size: clamp(18px, 4vw, 40px);
+}
+
+.min-box {
+    width: min(90%, 700px);
+    background: #dff9fb;
+    padding: 20px;
+}
+
+.max-box {
+    width: max(300px, 50%);
+    background: #ffeaa7;
+    padding: 20px;
+}
+
+/* 74. CALC */
+.calc-box {
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 25px;
+    background: #c7ecee;
+}
+
+/* 75. COMPLETE WEBSITE */
+.complete-site {
+    border: 3px solid var(--primary);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.complete-header {
+    background: var(--primary);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.complete-header h2 {
+    color: white;
+}
+
+.complete-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.complete-side {
+    background: #eee;
+    padding: 25px;
+}
+
+.complete-main {
+    padding: 25px;
+}
+
+.complete-footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+
+    .header-content {
+        flex-direction: column;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        grid-row: auto;
+    }
+
+    .dashboard-main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .practical {
+        padding: 20px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .grid-container,
+    .dashboard-main,
+    .two-column,
+    .auth-grid,
+    .contact-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .three-column {
+        flex-direction: column;
+    }
+
+    .area-layout {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .complete-content {
+        grid-template-columns: 1fr;
+    }
+
+    .fixed-sidebar {
+        display: none;
+    }
+
+    .fixed-demo {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .responsive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 450px) {
+
+    header {
+        padding: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .hero {
+        padding: 35px 15px;
+    }
+
+    .practical {
+        border-radius: 10px;
+    }
+
+    .fixed-demo {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FIXED SIDEBAR - 51 -->
+<div class="fixed-sidebar">
+    <a href="#top">↑</a>
+    <a href="#portfolio">★</a>
+    <a href="#forms">✎</a>
+</div>
+
+<!-- HEADER / STICKY HEADER - 50 -->
+<header id="top">
+    <div class="header-content">
+        <div class="logo">🎨 CSS LAB</div>
+
+        <nav>
+            <ul>
+                <li><a href="#selectors">Selectors</a></li>
+                <li><a href="#box">Box Model</a></li>
+                <li><a href="#flex">Flexbox</a></li>
+                <li><a href="#grid">Grid</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#responsive">Responsive</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+<!-- HERO -->
+<section class="hero">
+    <h1 id="main-title">CSS 75 Practical Lab</h1>
+    <p>HTML5 • CSS3 • Flexbox • Grid • Responsive Design</p>
+    <br>
+    <a class="btn" href="#practical1">Start Practicals</a>
+</section>
+
+<!-- 1 -->
+<section class="practical" id="practical1">
+<h2>1. Inline, Internal and External CSS</h2>
+<div class="demo">
+    <p style="color: red; font-weight: bold;">
+        Inline CSS Example
+    </p>
+
+    <p class="inline-demo">
+        Internal CSS Example
+    </p>
+
+    <p>
+        External CSS normally uses:
+        <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>
+    </p>
+</div>
+</section>
+
+<!-- 2 / 27 -->
+<section class="practical" id="selectors">
+<h2>2 & 27. CSS Selectors</h2>
+<div class="demo">
+    <p>Element selector</p>
+    <p class="bold-text">Class selector</p>
+    <p id="specificity-demo">ID selector</p>
+    <input type="email" placeholder="Attribute selector">
+    <p>Grouping selector: h1, h2, h3</p>
+</div>
+</section>
+
+<!-- 3 -->
+<section class="practical">
+<h2>3. Colors, Backgrounds and Borders</h2>
+<div class="color-box">
+    Color + Gradient Background + Border
+</div>
+</section>
+
+<!-- 4 -->
+<section class="practical">
+<h2>4. Font Properties and Text Formatting</h2>
+<div class="demo">
+    <p class="bold-text">Bold Text</p>
+    <p class="italic-text">Italic Text</p>
+    <p class="uppercase">uppercase text</p>
+    <p class="underline">Underlined text</p>
+    <p class="center">Centered text</p>
+</div>
+</section>
+
+<!-- 5 -->
+<section class="practical" id="box">
+<h2>5. CSS Box Model</h2>
+<div class="box-model">
+    Content → Padding → Border → Margin
+</div>
+</section>
+
+<!-- 6 -->
+<section class="practical">
+<h2>6. Width, Height and Sizing</h2>
+<div class="demo">
+    <div class="size-small">150 × 70</div>
+    <br>
+    <div class="size-medium">60% width with min/max sizing</div>
+</div>
+</section>
+
+<!-- 7 -->
+<section class="practical">
+<h2>7. CSS Positioning</h2>
+<div class="position-area">
+    <div class="static-box">Static</div>
+    <div class="relative-box">Relative</div>
+    <div class="absolute-box">Absolute</div>
+</div>
+<p>Fixed and sticky positioning are also used on this page.</p>
+</section>
+
+<!-- 8 -->
+<section class="practical">
+<h2>8. Float and Clear</h2>
+<div class="demo">
+    <div class="float-left">FLOAT</div>
+    <p>
+        This paragraph flows around the floated element.
+        Float is commonly used for older layouts.
+    </p>
+    <p class="clear-demo">
+        CLEAR: This starts after the floated element.
+    </p>
+</div>
+</section>
+
+<!-- 9 -->
+<section class="practical">
+<h2>9. Styled Navigation Bar</h2>
+<div class="demo">
+    <nav style="background:#20243a;padding:15px;border-radius:10px;">
+        <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#forms">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+</section>
+
+<!-- 10 -->
+<section class="practical">
+<h2>10. Pseudo-classes</h2>
+<div class="demo pseudo-links">
+    <a href="#top">Hover me</a>
+    <a href="#box">Active / Visited</a>
+    <br><br>
+    <input type="text" placeholder="Click to see :focus">
+</div>
+</section>
+
+<!-- 11 -->
+<section class="practical">
+<h2>11. Pseudo-elements</h2>
+<div class="demo">
+    <p class="pseudo-element">Before and After</p>
+    <p class="first-letter">First letter becomes large.</p>
+    <p class="first-line">
+        The first line of this paragraph is styled differently.
+        This demonstrates the first-line pseudo-element.
+    </p>
+</div>
+</section>
+
+<!-- 12 -->
+<section class="practical">
+<h2>12. CSS Lists and Tables</h2>
+<div class="demo">
+    <ul class="custom-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td>Anu</td>
+            <td>B.Tech</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Ravi</td>
+            <td>B.Tech</td>
+            <td>85</td>
+        </tr>
+    </table>
+</div>
+</section>
+
+<!-- 13 -->
+<section class="practical" id="forms">
+<h2>13. Styled Registration Form</h2>
+<div class="demo">
+<form>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+        <label>Course</label>
+        <select>
+            <option>B.Tech</option>
+            <option>BCA</option>
+            <option>MCA</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Enter message"></textarea>
+    </div>
+
+    <button class="btn" type="button">Register</button>
+</form>
+</div>
+</section>
+
+<!-- 14 -->
+<section class="practical" id="flex">
+<h2>14. Flexbox</h2>
+<div class="flex-container">
+    <div class="flex-item">Flex 1</div>
+    <div class="flex-item">Flex 2</div>
+    <div class="flex-item">Flex 3</div>
+</div>
+</section>
+
+<!-- 15 -->
+<section class="practical" id="grid">
+<h2>15. CSS Grid</h2>
+<div class="grid-container">
+    <div class="grid-item">Grid 1</div>
+    <div class="grid-item">Grid 2</div>
+    <div class="grid-item">Grid 3</div>
+    <div class="grid-item">Grid 4</div>
+    <div class="grid-item">Grid 5</div>
+    <div class="grid-item">Grid 6</div>
+</div>
+</section>
+
+<!-- 16 -->
+<section class="practical" id="responsive">
+<h2>16. Media Queries</h2>
+<div class="responsive-box">
+    Resize the browser window. This layout changes on smaller screens.
+</div>
+</section>
+
+<!-- 17 -->
+<section class="practical">
+<h2>17. Transitions and Transformations</h2>
+<div class="demo">
+    <div class="transition-box"></div>
+    <p>Hover the box.</p>
+</div>
+</section>
+
+<!-- 18 -->
+<section class="practical">
+<h2>18. CSS Animations</h2>
+<div class="demo">
+    <div class="animation-box"></div>
+</div>
+</section>
+
+<!-- 19 -->
+<section class="practical">
+<h2>19. Responsive Navigation Menu</h2>
+<div class="demo">
+    <p>The main navigation automatically wraps and adjusts for smaller screens.</p>
+</div>
+</section>
+
+<!-- 20 -->
+<section class="practical" id="portfolio">
+<h2>20. Personal Portfolio</h2>
+<div class="hero">
+    <h1>Hello, I'm a Student</h1>
+    <p>Web Development • Programming • Design</p>
+</div>
+</section>
+
+<!-- 21 -->
+<section class="practical">
+<h2>21. College / Student Profile</h2>
+<div class="profile">
+    <div class="avatar">S</div>
+    <div>
+        <h3>Student Profile</h3>
+        <p>Name: Student</p>
+        <p>Course: B.Tech</p>
+        <p>Skills: HTML, CSS, Python</p>
+    </div>
+</div>
+</section>
+
+<!-- 22 -->
+<section class="practical">
+<h2>22. Login Page</h2>
+<div class="login-box">
+    <h3>Login</h3>
+    <br>
+    <input type="email" placeholder="Email">
+    <br><br>
+    <input type="password" placeholder="Password">
+    <br><br>
+    <button class="btn" type="button">Login</button>
+</div>
+</section>
+
+<!-- 23 -->
+<section class="practical">
+<h2>23. Product Card Layout</h2>
+<div class="product-grid">
+
+    <div class="product-card">
+        <div class="product-image">💻</div>
+        <div class="product-content">
+            <h3>Laptop</h3>
+            <p>Modern laptop</p>
+            <strong>₹50,000</strong>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image">📱</div>
+        <div class="product-content">
+            <h3>Phone</h3>
+            <p>Smartphone</p>
+            <strong>₹25,000</strong>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image">🎧</div>
+        <div class="product-content">
+            <h3>Headphones</h3>
+            <p>Wireless audio</p>
+            <strong>₹2,000</strong>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- 24 -->
+<section class="practical">
+<h2>24. Responsive Photo Gallery</h2>
+<div class="gallery">
+    <div class="gallery-item">🌄</div>
+    <div class="gallery-item">🌊</div>
+    <div class="gallery-item">🌳</div>
+    <div class="gallery-item">🏔️</div>
+</div>
+</section>
+
+<!-- 25 -->
+<section class="practical">
+<h2>25. Complete Homepage</h2>
+<div class="hero">
+    <h1>Welcome Home</h1>
+    <p>A complete responsive homepage design.</p>
+    <br>
+    <a class="btn" href="#portfolio">Explore</a>
+</div>
+</section>
+
+<!-- 26 -->
+<section class="practical">
+<h2>26. Inheritance and Specificity</h2>
+<div class="demo inherit-parent">
+    <p class="inherit-child">
+        This text inherits the parent's purple color.
+    </p>
+
+    <p class="specificity" id="specificity-demo">
+        ID selector has higher specificity than class selector.
+    </p>
+</div>
+</section>
+
+<!-- 28 -->
+<section class="practical">
+<h2>28. Combinator Selectors</h2>
+<div class="demo combinator-demo">
+    <div>
+        <p>Descendant selector</p>
+    </div>
+
+    <p>Child selector</p>
+
+    <h4>Heading</h4>
+    <p>Adjacent sibling</p>
+    <p>General sibling</p>
+</div>
+</section>
+
+<!-- 29 -->
+<section class="practical">
+<h2>29. CSS Variables</h2>
+<div class="demo" style="background:var(--primary);color:white;">
+    This box uses CSS custom properties such as --primary.
+</div>
+</section>
+
+<!-- 30 -->
+<section class="practical">
+<h2>30. Background Images and Positioning</h2>
+<div class="background-image">
+    <h2 style="color:white;">Background Image</h2>
+</div>
+</section>
+
+<!-- 31 -->
+<section class="practical">
+<h2>31. Linear and Radial Gradients</h2>
+<div class="linear-gradient">Linear Gradient</div>
+<br>
+<div class="radial-gradient">Radial Gradient</div>
+</section>
+
+<!-- 32 -->
+<section class="practical">
+<h2>32. Box Shadow and Text Shadow</h2>
+<div class="shadow-box">
+    Box Shadow Example
+</div>
+<br>
+<div class="shadow-text">
+    Text Shadow Example
+</div>
+</section>
+
+<!-- 33 -->
+<section class="practical">
+<h2>33. Border Radius Shapes</h2>
+<div class="shapes">
+    <div class="circle"></div>
+    <div class="rounded-square"></div>
+    <div class="pill">Pill Shape</div>
+</div>
+</section>
+
+<!-- 34 -->
+<section class="practical">
+<h2>34. Opacity and Transparency</h2>
+<div class="opacity-container">
+    <div class="opacity-box">100%</div>
+    <div class="opacity-box opacity-50">50%</div>
+</div>
+</section>
+
+<!-- 35 -->
+<section class="practical">
+<h2>35. Overflow</h2>
+<div class="overflow-box">
+    This is a long content area demonstrating overflow.
+    The box has a fixed height and overflow auto.
+    Scroll inside this box to see additional content.
+    CSS overflow can be visible, hidden, scroll or auto.
+</div>
+</section>
+
+<!-- 36 -->
+<section class="practical">
+<h2>36. Z-index and Stacking</h2>
+<div class="z-container">
+    <div class="z-one">1</div>
+    <div class="z-two">3</div>
+    <div class="z-three">2</div>
+</div>
+</section>
+
+<!-- 37 -->
+<section class="practical">
+<h2>37. Display Properties</h2>
+<div class="demo">
+    <span class="display-block">Block</span>
+    <span class="display-inline">Inline</span>
+    <span class="display-inline-block">Inline Block</span>
+    <span class="display-none">None</span>
+</div>
+</section>
+
+<!-- 38 -->
+<section class="practical">
+<h2>38. Visibility</h2>
+<div class="demo">
+    <p>Visible text</p>
+    <p class="visibility-hidden">Hidden but space remains</p>
+    <p>Text after hidden element</p>
+</div>
+</section>
+
+<!-- 39 -->
+<section class="practical">
+<h2>39. Dropdown Menu</h2>
+<div class="demo">
+    <div class="dropdown">
+        <button class="btn">Hover Me ▼</button>
+        <div class="dropdown-content">
+            <a href="#top">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#forms">Contact</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- 40 -->
+<section class="practical">
+<h2>40. Image Hover Effect</h2>
+<div class="demo">
+    <img
+      class="image-hover"
+      src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=600&q=80"
+      alt="Nature">
+</div>
+</section>
+
+<!-- 41 -->
+<section class="practical">
+<h2>41. Tooltip</h2>
+<div class="demo">
+    <div class="tooltip">
+        Hover Me
+        <span class="tooltip-text">This is a tooltip!</span>
+    </div>
+</div>
+</section>
+
+<!-- 42 -->
+<section class="practical">
+<h2>42. CSS-only Button Hover Animation</h2>
+<div class="demo">
+    <button class="animated-button">Hover Me</button>
+</div>
+</section>
+
+<!-- 43 -->
+<section class="practical">
+<h2>43. CSS Filters</h2>
+<div class="filter-gallery">
+    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Nature">
+    <img class="blur" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Blur">
+    <img class="grayscale" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Gray">
+    <img class="brightness" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Brightness">
+    <img class="contrast" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Contrast">
+</div>
+</section>
+
+<!-- 44 -->
+<section class="practical">
+<h2>44. Object-fit and Object-position</h2>
+<div class="demo">
+    <img
+      class="object-demo"
+      src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80"
+      alt="Forest">
+    <p>object-fit: cover; object-position: center;</p>
+</div>
+</section>
+
+<!-- 45 -->
+<section class="practical">
+<h2>45. Responsive Image Gallery</h2>
+<div class="gallery">
+    <div class="gallery-item">📷 1</div>
+    <div class="gallery-item">📷 2</div>
+    <div class="gallery-item">📷 3</div>
+    <div class="gallery-item">📷 4</div>
+    <div class="gallery-item">📷 5</div>
+    <div class="gallery-item">📷 6</div>
+</div>
+</section>
+
+<!-- 46 -->
+<section class="practical">
+<h2>46. Card Layout using Flexbox</h2>
+<div class="card-flex">
+    <div class="flex-card">
+        <h3>Card 1</h3>
+        <p>Flexbox card.</p>
+    </div>
+
+    <div class="flex-card">
+        <h3>Card 2</h3>
+        <p>Flexible sizing.</p>
+    </div>
+
+    <div class="flex-card">
+        <h3>Card 3</h3>
+        <p>Responsive layout.</p>
+    </div>
+</div>
+</section>
+
+<!-- 47 -->
+<section class="practical">
+<h2>47. Dashboard Grid</h2>
+<div class="dashboard">
+    <aside class="dashboard-sidebar">
+        <h3 style="color:white;">Dashboard</h3>
+        <p>Home</p>
+        <p>Reports</p>
+        <p>Settings</p>
+    </aside>
+
+    <div>
+        <h3>Statistics</h3>
+    </div>
+
+    <div class="dashboard-main">
+        <div class="dashboard-card">Users<br><strong>1,250</strong></div>
+        <div class="dashboard-card">Sales<br><strong>₹50K</strong></div>
+        <div class="dashboard-card">Orders<br><strong>320</strong></div>
+    </div>
+</div>
+</section>
+
+<!-- 48 -->
+<section class="practical">
+<h2>48. Two-column Grid</h2>
+<div class="two-column">
+    <div class="demo">
+        <h3>Left Column</h3>
+        <p>Content here.</p>
+    </div>
+    <div class="demo">
+        <h3>Right Column</h3>
+        <p>Content here.</p>
+    </div>
+</div>
+</section>
+
+<!-- 49 -->
+<section class="practical">
+<h2>49. Three-column Flexbox</h2>
+<div class="three-column">
+    <div>Column 1</div>
+    <div>Column 2</div>
+    <div>Column 3</div>
+</div>
+</section>
+
+<!-- 50 -->
+<section class="practical">
+<h2>50. Sticky Header</h2>
+<div class="demo">
+    <p>The main page header at the top is using:</p>
+    <code>position: sticky;</code>
+</div>
+</section>
+
+<!-- 51 -->
+<section class="practical">
+<h2>51. Fixed Sidebar</h2>
+<div class="demo">
+    <p>Look at the left side of the page for the fixed sidebar.</p>
+</div>
+</section>
+
+<!-- 52 -->
+<section class="practical">
+<h2>52. Responsive Footer</h2>
+<div class="demo">
+    <p>The footer at the bottom changes naturally with screen size.</p>
+</div>
+</section>
+
+<!-- 53 -->
+<section class="practical">
+<h2>53. Responsive Login and Signup</h2>
+<div class="auth-grid">
+    <div class="login-box">
+        <h3>Login</h3>
+        <input type="email" placeholder="Email">
+        <br><br>
+        <input type="password" placeholder="Password">
+        <br><br>
+        <button class="btn">Login</button>
+    </div>
+
+    <div class="login-box">
+        <h3>Signup</h3>
+        <input type="text" placeholder="Name">
+        <br><br>
+        <input type="email" placeholder="Email">
+        <br><br>
+        <input type="password" placeholder="Password">
+        <br><br>
+        <button class="btn">Signup</button>
+    </div>
+</div>
+</section>
+
+<!-- 54 -->
+<section class="practical">
+<h2>54. Responsive Contact Form</h2>
+<div class="contact-grid">
+    <div>
+        <h3>Contact Us</h3>
+        <p>Email: example@email.com</p>
+        <p>Phone: 9876543210</p>
+    </div>
+
+    <form>
+        <input type="text" placeholder="Your Name">
+        <br><br>
+        <input type="email" placeholder="Your Email">
+        <br><br>
+        <textarea placeholder="Your Message"></textarea>
+        <br><br>
+        <button class="btn" type="button">Send</button>
+    </form>
+</div>
+</section>
+
+<!-- 55 -->
+<section class="practical">
+<h2>55. Responsive College Homepage</h2>
+<div class="college-banner">
+    <h2>ABC Engineering College</h2>
+    <p>Learn • Grow • Achieve</p>
+</div>
+</section>
+
+<!-- 56 -->
+<section class="practical">
+<h2>56. Restaurant Webpage</h2>
+<div class="restaurant">
+    <h2>🍽️ Delicious Restaurant</h2>
+    <p>Fresh food • Great taste • Happy customers</p>
+    <br>
+    <a class="btn" href="#forms">Book a Table</a>
+</div>
+</section>
+
+<!-- 57 -->
+<section class="practical">
+<h2>57. Online Shopping Webpage</h2>
+<div class="shopping">
+    <div class="shop-item">👕<br><strong>Shirt</strong><br>₹999</div>
+    <div class="shop-item">👟<br><strong>Shoes</strong><br>₹1,999</div>
+    <div class="shop-item">🎒<br><strong>Bag</strong><br>₹799</div>
+    <div class="shop-item">⌚<br><strong>Watch</strong><br>₹2,499</div>
+</div>
+</section>
+
+<!-- 58 -->
+<section class="practical">
+<h2>58. Travel Website Homepage</h2>
+<div class="travel">
+    <div>
+        <h2>Explore the World 🌍</h2>
+        <p>Travel • Discover • Enjoy</p>
+    </div>
+</div>
+</section>
+
+<!-- 59 -->
+<section class="practical">
+<h2>59. News / Blog Grid</h2>
+<div class="news-grid">
+    <article class="news-card">
+        <h3>Technology</h3>
+        <p>Latest technology news.</p>
+    </article>
+
+    <article class="news-card">
+        <h3>Education</h3>
+        <p>Learning updates.</p>
+    </article>
+
+    <article class="news-card">
+        <h3>Sports</h3>
+        <p>Sports highlights.</p>
+    </article>
+</div>
+</section>
+
+<!-- 60 -->
+<section class="practical">
+<h2>60. Portfolio Multiple Sections</h2>
+<div class="two-column">
+    <div class="demo">
+        <h3>About Me</h3>
+        <p>Student interested in web development.</p>
+    </div>
+
+    <div class="demo">
+        <h3>Skills</h3>
+        <p>HTML • CSS • Python • C</p>
+    </div>
+
+    <div class="demo">
+        <h3>Projects</h3>
+        <p>Websites and programming projects.</p>
+    </div>
+
+    <div class="demo">
+        <h3>Contact</h3>
+        <p>Email and social links.</p>
+    </div>
+</div>
+</section>
+
+<!-- 61 -->
+<section class="practical">
+<h2>61. CSS Grid Template Areas</h2>
+<div class="area-layout">
+    <div class="area-header">Header</div>
+    <div class="area-sidebar">Sidebar</div>
+    <div class="area-content">Main Content</div>
+    <div class="area-footer">Footer</div>
+</div>
+</section>
+
+<!-- 62 -->
+<section class="practical">
+<h2>62. Flexbox Alignment and Ordering</h2>
+<div class="flex-order">
+    <div class="order-one demo">Order 3</div>
+    <div class="order-two demo">Order 1</div>
+    <div class="order-three demo">Order 2</div>
+</div>
+</section>
+
+<!-- 63 -->
+<section class="practical">
+<h2>63. Responsive Grid + Media Queries</h2>
+<div class="responsive-grid">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+</section>
+
+<!-- 64 -->
+<section class="practical">
+<h2>64. Mobile-first Responsive Webpage</h2>
+<div class="mobile-first">
+    This layout starts with mobile-friendly styling and expands on larger screens.
+</div>
+</section>
+
+<!-- 65 -->
+<section class="practical">
+<h2>65. CSS Transitions</h2>
+<div class="demo">
+    <div class="transition-box"></div>
+    <p>Hover to see the transition.</p>
+</div>
+</section>
+
+<!-- 66 -->
+<section class="practical">
+<h2>66. 2D and 3D Transformations</h2>
+<div class="demo">
+    <div class="transform-2d"></div>
+    <br>
+    <div class="transform-3d"></div>
+    <p>Hover the boxes.</p>
+</div>
+</section>
+
+<!-- 67 -->
+<section class="practical">
+<h2>67. Keyframe Animation</h2>
+<div class="demo">
+    <div class="animation-box"></div>
+</div>
+</section>
+
+<!-- 68 -->
+<section class="practical">
+<h2>68. Loading Spinner</h2>
+<div class="demo">
+    <div class="spinner"></div>
+</div>
+</section>
+
+<!-- 69 -->
+<section class="practical">
+<h2>69. Sliding Card Animation</h2>
+<div class="demo slider">
+    <div class="slide-track">
+        <div class="slide-card">Card 1</div>
+        <div class="slide-card">Card 2</div>
+        <div class="slide-card">Card 3</div>
+        <div class="slide-card">Card 4</div>
+        <div class="slide-card">Card 5</div>
+    </div>
+</div>
+</section>
+
+<!-- 70 -->
+<section class="practical">
+<h2>70. CSS-only Modal / Popup</h2>
+
+<input type="checkbox" id="modal-check" class="modal-check">
+
+<label for="modal-check" class="modal-label">
+    Open Popup
+</label>
+
+<div class="modal">
+    <div class="modal-content">
+        <h2>CSS Modal</h2>
+        <p>This popup works without JavaScript.</p>
+        <br>
+        <label for="modal-check" class="btn">
+            Close
+        </label>
+    </div>
+</div>
+</section>
+
+<!-- 71 -->
+<section class="practical">
+<h2>71. Dark Mode using CSS Variables</h2>
+
+<input type="checkbox" id="dark-check" class="dark-check">
+
+<label for="dark-check" class="dark-label">
+    🌙 Toggle Dark Mode
+</label>
+
+<div class="dark-demo">
+    <h3>Dark Mode Demo</h3>
+    <p>
+        This section changes its colors using CSS variables.
+    </p>
+</div>
+</section>
+
+<!-- 72 -->
+<section class="practical">
+<h2>72. Responsive Typography</h2>
+<div class="demo">
+    <div class="responsive-text">
+        Responsive Text
+    </div>
+</div>
+</section>
+
+<!-- 73 -->
+<section class="practical">
+<h2>73. clamp(), min() and max()</h2>
+<div class="demo">
+    <p class="clamp-box">
+        clamp() responsive font size
+    </p>
+
+    <div class="min-box">
+        Width uses min()
+    </div>
+
+    <br>
+
+    <div class="max-box">
+        Width uses max()
+    </div>
+</div>
+</section>
+
+<!-- 74 -->
+<section class="practical">
+<h2>74. CSS calc()</h2>
+<div class="calc-box">
+    Width = calc(100% - 40px)
+</div>
+</section>
+
+<!-- 75 -->
+<section class="practical">
+<h2>75. Complete Responsive Website</h2>
+
+<div class="complete-site">
+
+    <div class="complete-header">
+        <h2>My Complete Website</h2>
+        <p>HTML5 + CSS3 + Flexbox + Grid + Media Queries</p>
+    </div>
+
+    <div class="complete-content">
+
+        <aside class="complete-side">
+            <h3>Menu</h3>
+            <p>Home</p>
+            <p>About</p>
+            <p>Services</p>
+            <p>Contact</p>
+        </aside>
+
+        <main class="complete-main">
+
+            <h2>Welcome!</h2>
+
+            <p>
+                This is a complete responsive website using
+                modern HTML and CSS.
+            </p>
+
+            <br>
+
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-content">
+                        <h3>Web Design</h3>
+                        <p>Modern responsive designs.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎨</div>
+                    <div class="product-content">
+                        <h3>CSS Design</h3>
+                        <p>Beautiful CSS layouts.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📱</div>
+                    <div class="product-content">
+                        <h3>Responsive</h3>
+                        <p>Works on mobile devices.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div class="complete-footer">
+        © 2026 My Website | CSS Practical Lab
+    </div>
+
+</div>
+</section>
+
+</div>
+
+<!-- FIXED DEMO -->
+<div class="fixed-demo">
+    CSS Lab ✓
+</div>
+
+<footer>
+    <h2>CSS Practical Lab</h2>
+    <p>75 CSS Concepts Demonstrated</p>
+    <p>HTML5 • CSS3 • Flexbox • Grid • Responsive Design</p>
+</footer>
+
+</body>
+</html>

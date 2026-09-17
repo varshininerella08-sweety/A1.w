@@ -1,0 +1,886 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML & CSS Lab</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #222;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Main */
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #5b4bc4;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Cards */
+        .card-box {
+            background: #f8f9ff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        /* Lists */
+        li {
+            margin: 8px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 2px solid #555;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Image */
+        .sample-image {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 4px solid #667eea;
+        }
+
+        /* Form */
+        form {
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #667eea;
+            color: white;
+        }
+
+        .reset-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* Semantic */
+        .semantic-header {
+            background: #e8eaff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .semantic-nav {
+            background: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .semantic-nav a {
+            color: white;
+            margin: 10px;
+        }
+
+        article {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        /* CSS selector example */
+        .class-example {
+            color: green;
+            font-size: 20px;
+        }
+
+        #id-example {
+            background: lightyellow;
+            padding: 20px;
+            border: 3px solid orange;
+            margin-top: 15px;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            text-align: center;
+        }
+
+        .portfolio-card {
+            display: inline-block;
+            width: 28%;
+            min-width: 220px;
+            margin: 10px;
+            padding: 25px;
+            background: #f0f2ff;
+            border-radius: 12px;
+            vertical-align: top;
+        }
+
+        /* Responsive */
+        .responsive-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .responsive-box {
+            flex: 1;
+            background: #dbe4ff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 700px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .responsive-container {
+                flex-direction: column;
+            }
+
+            .portfolio-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <h1>🌐 HTML & CSS Practice Lab</h1>
+    <p>Complete Web Development Practical Programs</p>
+</header>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <a href="#basic">Basic HTML</a>
+    <a href="#lists">Lists</a>
+    <a href="#table">Table</a>
+    <a href="#media">Media</a>
+    <a href="#form">Form</a>
+    <a href="#semantic">Semantic</a>
+    <a href="#css">CSS</a>
+    <a href="#bootstrap">Bootstrap</a>
+    <a href="#portfolio">Portfolio</a>
+</nav>
+
+<main>
+
+<!-- ================= 1. BASIC HTML ================= -->
+
+<section id="basic">
+
+    <h2>1. Basic HTML</h2>
+
+    <h1>Main Heading</h1>
+
+    <h2>Sub Heading</h2>
+
+    <p>
+        HTML stands for HyperText Markup Language.
+        HTML is used to create webpages.
+    </p>
+
+    <p>
+        This is the first line.<br>
+        This is the second line.<br>
+        This is the third line.
+    </p>
+
+</section>
+
+<!-- ================= 2. LISTS ================= -->
+
+<section id="lists">
+
+    <h2>2. HTML Lists</h2>
+
+    <div class="card-box">
+
+        <h3>Ordered List</h3>
+
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+
+    </div>
+
+    <div class="card-box">
+
+        <h3>Unordered List</h3>
+
+        <ul>
+            <li>C Programming</li>
+            <li>Python</li>
+            <li>Java</li>
+        </ul>
+
+    </div>
+
+    <div class="card-box">
+
+        <h3>Description List</h3>
+
+        <dl>
+            <dt><b>HTML</b></dt>
+            <dd>Used to create webpages.</dd>
+
+            <dt><b>CSS</b></dt>
+            <dd>Used to style webpages.</dd>
+
+            <dt><b>JavaScript</b></dt>
+            <dd>Used to add functionality.</dd>
+        </dl>
+
+    </div>
+
+</section>
+
+<!-- ================= 3. TABLE ================= -->
+
+<section id="table">
+
+    <h2>3. HTML Table</h2>
+
+    <table>
+
+        <tr>
+            <th colspan="3">Student Information</th>
+        </tr>
+
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+
+        <tr>
+            <td>Varshini</td>
+            <td>18</td>
+            <td>B.Tech</td>
+        </tr>
+
+        <tr>
+            <td>Rahul</td>
+            <td>19</td>
+            <td>BCA</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Total</td>
+            <td colspan="2">2 Students</td>
+        </tr>
+
+    </table>
+
+</section>
+
+<!-- ================= 4. IMAGE AND LINKS ================= -->
+
+<section>
+
+    <h2>4. Images and Hyperlinks</h2>
+
+    <img
+        class="sample-image"
+        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=500"
+        alt="Office">
+
+    <br><br>
+
+    <a
+        href="https://www.google.com"
+        target="_blank">
+
+        Visit Google
+
+    </a>
+
+</section>
+
+<!-- ================= 5. REGISTRATION FORM ================= -->
+
+<section id="form">
+
+    <h2>5. Student Registration Form</h2>
+
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+
+        <label>Gender</label>
+
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+
+        <label>Course</label>
+
+        <select>
+            <option>B.Tech</option>
+            <option>BCA</option>
+            <option>B.Sc</option>
+            <option>MCA</option>
+        </select>
+
+        <label>Hobbies</label>
+
+        <input type="checkbox"> Reading
+        <input type="checkbox"> Sports
+        <input type="checkbox"> Music
+
+        <label>Address</label>
+
+        <textarea rows="5"
+            placeholder="Enter your address"></textarea>
+
+        <button class="submit-btn" type="submit">
+            Register
+        </button>
+
+        <button class="reset-btn" type="reset">
+            Reset
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ================= 6. AUDIO VIDEO ================= -->
+
+<section id="media">
+
+    <h2>6. Audio and Video</h2>
+
+    <h3>Audio</h3>
+
+    <audio controls>
+        <source
+            src="https://www.w3schools.com/html/horse.mp3"
+            type="audio/mpeg">
+
+        Your browser does not support audio.
+    </audio>
+
+    <h3>Video</h3>
+
+    <video width="500" controls>
+
+        <source
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            type="video/mp4">
+
+        Your browser does not support video.
+
+    </video>
+
+</section>
+
+<!-- ================= 7. IFRAME ================= -->
+
+<section>
+
+    <h2>7. Iframe</h2>
+
+    <iframe
+        src="https://www.wikipedia.org"
+        width="100%"
+        height="400"
+        title="Wikipedia">
+
+    </iframe>
+
+</section>
+
+<!-- ================= 8. SEMANTIC ELEMENTS ================= -->
+
+<section id="semantic">
+
+    <h2>8. Semantic HTML</h2>
+
+    <div class="semantic-header">
+
+        <h2>College Website</h2>
+
+        <p>Welcome to our college</p>
+
+    </div>
+
+    <div class="semantic-nav">
+
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Courses</a>
+
+    </div>
+
+    <article>
+
+        <h3>B.Tech</h3>
+
+        <p>
+            Bachelor of Technology is a four-year
+            undergraduate degree.
+        </p>
+
+    </article>
+
+    <article>
+
+        <h3>BCA</h3>
+
+        <p>
+            Bachelor of Computer Applications
+            is a computer-related degree.
+        </p>
+
+    </article>
+
+</section>
+
+<!-- ================= 9. HTML5 INPUT ================= -->
+
+<section>
+
+    <h2>9. HTML5 Input Types</h2>
+
+    <form>
+
+        <label>Email</label>
+        <input type="email"
+               placeholder="Enter email">
+
+        <label>Date</label>
+        <input type="date">
+
+        <label>Number</label>
+        <input type="number"
+               min="1"
+               max="100">
+
+        <label>Password</label>
+        <input type="password"
+               placeholder="Enter password">
+
+        <button class="submit-btn">
+            Submit
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ================= 10. TIMETABLE ================= -->
+
+<section>
+
+    <h2>10. College Timetable</h2>
+
+    <table>
+
+        <tr>
+            <th>Day</th>
+            <th>9-10</th>
+            <th>10-11</th>
+            <th>11-12</th>
+            <th>12-1</th>
+        </tr>
+
+        <tr>
+            <td>Monday</td>
+            <td>HTML</td>
+            <td>Maths</td>
+            <td>Python</td>
+            <td>Lunch</td>
+        </tr>
+
+        <tr>
+            <td>Tuesday</td>
+            <td>CSS</td>
+            <td>C</td>
+            <td>English</td>
+            <td>Lunch</td>
+        </tr>
+
+        <tr>
+            <td>Wednesday</td>
+            <td>Python</td>
+            <td>Maths</td>
+            <td>HTML</td>
+            <td>Lunch</td>
+        </tr>
+
+        <tr>
+            <td>Thursday</td>
+            <td>C</td>
+            <td>CSS</td>
+            <td>Python</td>
+            <td>Lunch</td>
+        </tr>
+
+        <tr>
+            <td>Friday</td>
+            <td>Maths</td>
+            <td>HTML</td>
+            <td>CSS</td>
+            <td>Lunch</td>
+        </tr>
+
+    </table>
+
+</section>
+
+<!-- ================= 11. INTERNAL & EXTERNAL CSS ================= -->
+
+<section id="css">
+
+    <h2>11. Internal and External CSS</h2>
+
+    <div class="card-box">
+
+        <h3>CSS Styling Example</h3>
+
+        <p>
+            This webpage uses CSS for styling.
+        </p>
+
+        <p class="class-example">
+            This is a class selector example.
+        </p>
+
+        <div id="id-example">
+            This is an ID selector example.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= 12. CSS SELECTORS ================= -->
+
+<section>
+
+    <h2>12. CSS Selectors, Colors, Fonts, Margin, Padding and Border</h2>
+
+    <div class="card-box">
+
+        <h3>Element Selector</h3>
+
+        <p>
+            Selects HTML elements directly.
+        </p>
+
+    </div>
+
+    <div class="card-box">
+
+        <h3>Class Selector</h3>
+
+        <p class="class-example">
+            This text uses a class selector.
+        </p>
+
+    </div>
+
+    <div id="id-example">
+
+        <h3>ID Selector</h3>
+
+        <p>
+            This box demonstrates color,
+            margin, padding and border.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= 13. RESPONSIVE ================= -->
+
+<section>
+
+    <h2>13. Responsive Webpage</h2>
+
+    <p>
+        Resize the browser window to see the responsive effect.
+    </p>
+
+    <div class="responsive-container">
+
+        <div class="responsive-box">
+            <h3>Box 1</h3>
+            <p>HTML</p>
+        </div>
+
+        <div class="responsive-box">
+            <h3>Box 2</h3>
+            <p>CSS</p>
+        </div>
+
+        <div class="responsive-box">
+            <h3>Box 3</h3>
+            <p>JavaScript</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= 14. BOOTSTRAP ================= -->
+
+<section id="bootstrap">
+
+    <h2>14. Bootstrap Components</h2>
+
+    <div class="alert alert-success">
+        Welcome to Bootstrap!
+    </div>
+
+    <div class="card" style="max-width: 400px;">
+
+        <div class="card-body">
+
+            <h5 class="card-title">
+                Student Card
+            </h5>
+
+            <p class="card-text">
+                This is a Bootstrap card component.
+            </p>
+
+            <button class="btn btn-primary">
+                Click Me
+            </button>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <button class="btn btn-success">
+        Success
+    </button>
+
+    <button class="btn btn-danger">
+        Delete
+    </button>
+
+</section>
+
+<!-- ================= 15. PORTFOLIO ================= -->
+
+<section id="portfolio" class="portfolio">
+
+    <h2>15. Personal Portfolio</h2>
+
+    <h1>My Portfolio</h1>
+
+    <p>
+        Hello! I am a student interested in
+        programming and web development.
+    </p>
+
+    <div class="portfolio-card">
+
+        <h3>About Me</h3>
+
+        <p>
+            I am learning HTML, CSS,
+            Python and C programming.
+        </p>
+
+    </div>
+
+    <div class="portfolio-card">
+
+        <h3>My Skills</h3>
+
+        <p>
+            HTML<br>
+            CSS<br>
+            Python<br>
+            C Programming
+        </p>
+
+    </div>
+
+    <div class="portfolio-card">
+
+        <h3>My Projects</h3>
+
+        <p>
+            Student Registration<br>
+            College Timetable<br>
+            Portfolio Website
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>HTML & CSS Practice Lab</h3>
+
+    <p>
+        Created for Web Development Practical
+    </p>
+
+    <p>
+        © 2026 All Rights Reserved
+    </p>
+
+</footer>
+
+</body>
+</html>
+```
